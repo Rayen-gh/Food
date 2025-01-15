@@ -33,4 +33,21 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/admin', name: 'app_admin')]
+    public function admin(): Response
+    {
+        return $this->render('admin/dashboard.html', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    #[Route('/form', name: 'app_form')]
+    public function form(): Response
+    {
+        return $this->render('admin/formulaire.html', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
 }
