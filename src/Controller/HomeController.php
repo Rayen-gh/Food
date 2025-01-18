@@ -2,18 +2,22 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
-    public function index(): Response
+    #[Route('/', name: 'app_home')]
+    public function index(CategoryRepository $CategoryRepository): Response
     {
+        $Categories = $CategoryRepository->findAll();
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'Categories' => $Categories,
         ]);
+    
     }
 
     #[Route('/products', name: 'app_products')]
@@ -33,13 +37,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/admin', name: 'app_admin')]
-    public function admin(): Response
-    {
-        return $this->render('admin/dashboard.html', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
+    
 
     #[Route('/form', name: 'app_form')]
     public function form(): Response

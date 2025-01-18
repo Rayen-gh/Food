@@ -229,9 +229,9 @@
               
                   <select class="filter-categories border-0 mb-0 me-5">
                     <option>Categories</option>
-                    <option>Groceries</option>
-                    <option>Drinks</option>
-                    <option>Chocolates</option>
+                    {% for Category in Categories %}
+                    <option>{{Category.name}}</option>
+                    {% endfor %}
                   </select>
               
                   <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0 ">
