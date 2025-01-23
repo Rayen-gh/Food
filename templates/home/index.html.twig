@@ -327,11 +327,11 @@
     <h1>Product List</h1>
     
     <div class="row">
-        {% for product in products %}
+        {% for product in Products %}
             <div class="col-md-4 mb-4">
                 <div class="card">
                     {% if product.image %}
-                        <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
+                        <img src="{{ asset('uploads/images/' ~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
                     {% else %}
                         <img src="https://via.placeholder.com/150" class="card-img-top" alt="No image available">
                     {% endif %}
